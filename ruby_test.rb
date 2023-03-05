@@ -32,3 +32,10 @@ def small_directories_sum(root_dir, max_size)
     end
     total_size
 end
+
+# use case
+root_dir = "/a/e"
+max_size = 100000
+
+total_size = small_directories_sum(root_dir, max_size)
+puts "Total size for directory e: #{total_size}"
