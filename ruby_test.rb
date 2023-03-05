@@ -15,4 +15,20 @@ def find_directory_size(directory)
     total_size
 end
 
- 
+# find sum of nested directories
+
+def small_directories_sum(root_dir, max_size)
+    total_size = 0
+    Dir.foreach(root_dir) do |filename|
+        path = File.join(root_dir, filename)
+        if filename != "." && filename != ".."
+            if File.directory?(path)
+                dir_size = find_directory_size(path)
+                if dir_size <= max_size
+                    total_size += dir_size
+                end
+            end
+        end
+    end
+    total_size
+end
